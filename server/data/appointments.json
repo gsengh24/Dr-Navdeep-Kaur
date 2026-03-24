@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1774377522196,
+    "name": "Test Patient",
+    "phone": "9876543210",
+    "age": "25",
+    "treatment": "Acne Treatment",
+    "date": "2026-04-01",
+    "message": "This is a test booking.",
+    "timestamp": "2026-03-24T18:38:42.196Z"
+  },
+  {
+    "id": 1774378194301,
+    "name": "hjfvjhfhf",
+    "phone": "9310151710",
+    "age": "8",
+    "treatment": "Chemical Peel",
+    "date": "2000-02-12",
+    "message": "jjkjkk",
+    "timestamp": "2026-03-24T18:49:54.301Z"
+  }
+]

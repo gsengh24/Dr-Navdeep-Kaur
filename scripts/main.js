@@ -150,14 +150,31 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Simulate submission
+    // API submission
     submitBtn.textContent = 'Sending…';
     submitBtn.disabled = true;
 
+    const bookingData = {
+      id: Date.now(),
+      name,
+      phone,
+      age: document.getElementById('patientAge').value,
+      treatment: document.getElementById('treatment').value,
+      date: document.getElementById('preferredDate').value,
+      time: document.getElementById('preferredTime').value,
+      message: document.getElementById('message').value,
+      timestamp: new Date().toISOString()
+    };
+
+    // Use localStorage for Demo
     setTimeout(() => {
-      form.style.display = 'none';
-      formSuccess.style.display = 'block';
-    }, 1200);
+        const stored = JSON.parse(localStorage.getItem('appointments') || '[]');
+        stored.push(bookingData);
+        localStorage.setItem('appointments', JSON.stringify(stored));
+
+        form.style.display = 'none';
+        formSuccess.style.display = 'block';
+    }, 800);
   });
 
   function showError(fieldId, message) {

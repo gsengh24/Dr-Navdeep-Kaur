@@ -29,6 +29,7 @@
         <li><a href="#why-us" class="nav-link">Why Us</a></li>
         <li><a href="#testimonials" class="nav-link">Reviews</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="admin.html" class="nav-link" style="color:var(--rose); font-weight:600;">Admin</a></li>
       </ul>
       <a href="#appointment" class="btn btn-nav">Book Appointment</a>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -521,9 +522,19 @@
                 <option>Other</option>
               </select>
             </div>
-            <div class="form-group">
-              <label for="preferredDate">Preferred Date</label>
-              <input type="date" id="preferredDate" name="preferredDate" />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="preferredDate">Preferred Date</label>
+                <input type="date" id="preferredDate" name="preferredDate" />
+              </div>
+              <div class="form-group">
+                <label for="preferredTime">Preferred Time</label>
+                <select id="preferredTime" name="preferredTime">
+                  <option value="">Select a time</option>
+                  <option>Morning (9 AM – 12 PM)</option>
+                  <option>Evening (5 PM – 7 PM)</option>
+                </select>
+              </div>
             </div>
             <div class="form-group">
               <label for="message">Brief Description of Concern</label>
