@@ -297,6 +297,7 @@ ul { list-style: none; }
   color: #fff;
   line-height: 1.05;
   animation: fadeInUp 0.9s ease 0.15s both;
+  max-width: 55%;
 }
 .hero-title-light {
   font-weight: 300;
@@ -352,14 +353,16 @@ ul { list-style: none; }
   position: absolute;
   right: max(2rem, calc((100vw - 1200px) / 2));
   bottom: 0;
-  height: 90%;
-  max-width: 38%;
+  width: 42%;
+  max-width: 500px;
   display: flex;
   align-items: flex-end;
   animation: fadeInRight 1s ease 0.4s both;
 }
 .hero-image-frame {
   position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 4.5;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   overflow: hidden;
   box-shadow: var(--shadow-lg);
@@ -369,7 +372,7 @@ ul { list-style: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center;
+  object-position: center;
   filter: brightness(0.95) contrast(1.05);
 }
 .hero-tag {
@@ -474,9 +477,7 @@ ul { list-style: none; }
   width: 100%;
   height: 560px;
   object-fit: cover;
-  object-position: 50% 15%; /* Focused purely on her face */
-  transform: scale(1.3); /* Zooms in to crop the body/background */
-  transform-origin: 50% 15%;
+  object-position: center 25%;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   filter: brightness(1.02) contrast(1.05);
@@ -576,13 +577,98 @@ ul { list-style: none; }
 }
 
 /* ============================================
-   SERVICES
+   SERVICES / TREATMENTS
    ============================================ */
 .services { background: var(--warm-white); }
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+}
+
+/* ---- New Image-based Treatment Cards ---- */
+.treatments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+.treatment-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.treatment-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+}
+.treatment-img-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+}
+.treatment-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
+  display: block;
+}
+.treatment-card:hover .treatment-img-wrap img {
+  transform: scale(1.07);
+}
+.treatment-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(28,12,8,0.25) 100%);
+  pointer-events: none;
+}
+.treatment-body {
+  padding: 1.5rem 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.6rem;
+}
+.treatment-body h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  line-height: 1.25;
+}
+.treatment-body p {
+  font-size: 0.875rem;
+  color: var(--mid);
+  line-height: 1.68;
+  flex: 1;
+}
+.treatment-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  background: var(--gold);
+  color: #fff;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.75rem;
+  border-radius: 50px;
+  box-shadow: 0 2px 10px rgba(201,169,110,0.45);
+}
+.featured-treatment {
+  border-color: var(--gold-light);
+}
+.featured-treatment .treatment-body h3 {
+  color: var(--rose);
 }
 .service-card {
   background: #fff;
@@ -1201,7 +1287,8 @@ a.appt-contact-item:hover {
   .about-image-col { order: -1; }
   .about-img { height: 400px; }
   .about-badge-card { right: 1rem; }
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-grid,
+  .treatments-grid { grid-template-columns: repeat(2, 1fr); }
   .why-grid { grid-template-columns: 1fr; gap: 3rem; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
 }
@@ -1236,7 +1323,8 @@ a.appt-contact-item:hover {
   .nav-link { color: var(--charcoal) !important; font-size: 1rem; width: 100%; padding: 0.75rem 1rem; }
   .btn-nav { display: none; }
   .hamburger { display: flex; }
-  .services-grid { grid-template-columns: 1fr; }
+  .services-grid,
+  .treatments-grid { grid-template-columns: 1fr; }
   .testimonials-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .map-embed { height: 300px; }
@@ -1245,6 +1333,7 @@ a.appt-contact-item:hover {
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .appt-form-wrap { padding: 1.75rem; }
   .hero-content { max-width: 100%; }
+  .hero-title { max-width: 100%; }
   .credentials-grid { grid-template-columns: 1fr; }
 }
 
