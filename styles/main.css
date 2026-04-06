@@ -1324,23 +1324,38 @@ a.appt-contact-item:hover {
 
 @media (max-width: 768px) {
   .section { padding: 5rem 0; }
-  .hero { padding: 7rem 2rem 4rem; min-height: auto; }
+  .hero { 
+    padding: 7rem 1.5rem 4rem; 
+    min-height: auto; 
+    flex-direction: column;
+    text-align: center;
+  }
   .hero-image-wrap { 
     position: relative;
     right: auto; bottom: auto;
     width: 100%;
-    max-width: 100%;
+    max-width: 440px;
     height: auto;
-    margin-top: 2rem;
+    margin: 3rem auto 0;
   }
   .hero-image-frame {
     aspect-ratio: 3 / 4;
     max-height: 420px;
     border-radius: var(--radius-lg);
   }
-  .hero-img { object-position: center 10%; }
-  .hero-img-mobile-fix { object-position: center top; }
-  .hero-stats { gap: 1.25rem; flex-wrap: wrap; }
+  .hero-img { object-position: center; }
+  .hero-img-mobile-fix { object-position: center; }
+  .hero-content { 
+    max-width: 100%; 
+    align-items: center;
+  }
+  .hero-title { 
+    max-width: 100%; 
+    margin: 0 auto;
+  }
+  .hero-badge { margin: 0 auto; }
+  .hero-cta { justify-content: center; }
+  .hero-subtitle { margin: 0 auto; }
   .stat-num { font-size: 1.4rem; }
   .hero-scroll-hint { display: none; }
   .nav-links {
